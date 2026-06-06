@@ -53,7 +53,8 @@ def index_pdf(pdf_path):
 
     try:
         chroma_client.delete_collection("pdf_rag")
-    except:
+    except Exception as e:
+        print(e)
         pass
     collection = chroma_client.create_collection("pdf_rag")
     pages = extract_text_from_pdf(pdf_path)
